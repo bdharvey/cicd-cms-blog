@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_pages_homepages",
+  "info": {
+    "name": "Homepage",
+    "icon": "ad"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    }
+  }
+}
