@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_panels_hero_panels",
+  "info": {
+    "name": "Hero Panel",
+    "icon": "allergies"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "SubHeading": {
+      "type": "text"
+    }
+  }
+}
