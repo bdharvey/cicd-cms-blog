@@ -1,16 +1,16 @@
 {
   "collectionName": "components_panels_hero_panels",
   "info": {
-    "name": "Hero Panel",
-    "icon": "allergies"
+    "name": "HeroPanel",
+    "icon": "address-card"
   },
   "options": {},
   "attributes": {
-    "Title": {
+    "Heading": {
       "type": "string"
     },
-    "SubHeading": {
-      "type": "text"
+    "Subheading": {
+      "type": "string"
     }
   }
 }

@@ -9,10 +9,20 @@
     "timestamps": true
   },
   "attributes": {
-    "Homepage": {
+    "HeroPanel": {
       "type": "component",
       "repeatable": false,
-      "component": "pages.homepage"
+      "component": "panels.hero-panel"
+    },
+    "Content": {
+      "type": "component",
+      "repeatable": false,
+      "component": "panels.content-panel"
+    },
+    "Footer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "panels.footer-panel"
     }
   }
 }

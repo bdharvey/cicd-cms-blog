@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_panels_content_panels",
+  "info": {
+    "name": "ContentPanel",
+    "icon": "align-left"
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "richtext"
+    }
+  }
+}

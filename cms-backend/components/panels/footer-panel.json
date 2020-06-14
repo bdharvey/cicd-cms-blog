@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_panels_footer_panels",
+  "info": {
+    "name": "FooterPanel",
+    "icon": "angle-double-down"
+  },
+  "options": {},
+  "attributes": {
+    "FooterText": {
+      "type": "string"
+    },
+    "FooterCopyright": {
+      "type": "string"
+    }
+  }
+}
