@@ -12,6 +12,16 @@ services:
     ports:
       - 5432:5432
 
+  db2:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: cms-backend
+    ports:
+      - 5433:5432
+
   adminer:
     image: adminer
     restart: always
