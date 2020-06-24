@@ -17,7 +17,7 @@ if [ $# -eq 0 ]
     echo "\$1 : SOURCE_DBHOST : Is the host of the source posrgres servera"
     echo "\$2 : SOURCE_PGUSER : Is the user name for the source postgres instance"
     echo "\$3 : SOURCE_PGPASSWORD : Is the postgres password on the source database"
-    echo "\$4 : SROUCE_PGDB: Is the name of the database on the source postgres server"
+    echo "\$4 : SOURCE_PGDB: Is the name of the database on the source postgres server"
     echo "\$5 : DESTINATION_PGHOST: Is the hostname of the destination postgres server"
     echo "\$6 : DESTINATION_PGUSER : Is the user name for the source postgres instance"
     echo "\$7 : DESTINATION_PGPASSWORD : Is the password on the destination postgres instance"
@@ -26,4 +26,13 @@ if [ $# -eq 0 ]
     exit 1;
 fi
 
-docker run --rm --network="host" -v /tmp/:/tmp/ -e PGPASSWORD=$3 postgres pg_dump -U $2 -h $1 $4 > /tmp/backup.sql
+# Dump the database to file so that it can imported elsewhere
+docker run --rm --network="host" -v /private/tmp/:/tmp/ -e PGPASSWORD=$3 postgres pg_dump -U $2 -h $1 $4 > /tmp/backup.sql
+
+# Restore the dumped database into the new database
+#docker run --rm --network="host" -v /private/tmp/:/tmp/ -e PGPASSWORD=postgres postgres pg_restore --port=5433 -U $6 -h $5 -f /tmp/backup.sql
+
+echo "Create new database on the destination server"
+sh ./scripts/create-databse-if-not-exists.sh localhost postgres postgres test 5433
+
+ docker run --rm --network="host" -e PGPASSWORD=$3 postgres psql -p 5433 -U $2 -d test -h $1 < /tmp/backup.sql 

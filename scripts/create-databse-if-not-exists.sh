@@ -15,5 +15,5 @@ fi
 
  # Here we are using a docker container go get access to the psql command. This is an attempt to make our scripts more portable
  # and not have to depend on the host system having the psql cli installed
- docker run --rm --network="host" -e PGPASSWORD=$3 postgres psql -U $2 -h $1 -tc "SELECT 1 FROM pg_database WHERE datname = '$4'" | grep -q 1 || docker run --rm --network="host" -e PGPASSWORD=$3 postgres psql -U $2 -h $1 -c "CREATE DATABASE $4"
+ docker run --rm --network="host" -e PGPASSWORD=$3 postgres psql -U $2 -h $1 -p $5 -tc "SELECT 1 FROM pg_database WHERE datname = '$4'" | grep -q 1 || docker run --rm --network="host" -e PGPASSWORD=$3 postgres psql -U $2 -h $1 -c "CREATE DATABASE $4"
 
